@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding:0;
+}
+
+.pembungkus_utama{
+    width:1280px;
+    height: 100%;
+    background-color: blue;
+}
+
+.pembungkus_2{
+width: 1000px;
+height: 100%;
+padding-inline:11px;
+background-color: red;
+}
