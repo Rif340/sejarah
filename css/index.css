@@ -1,17 +1,517 @@
-*{
+* {
     margin: 0;
-    padding:0;
+    padding: 0;
+    font-family: 'Plus Jakarta Sans';
 }
 
-.pembungkus_utama{
-    width:1280px;
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+    /* Mencegah scroll horizontal */
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url('../asset/Plus_Jakarta_Sans/static/PlusJakartaSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url('../asset/Plus_Jakarta_Sans/static/PlusJakartaSans-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+.pembungkus_utama {
+    width: 100%;
+    height: 100vh;
+    background-color: #1E1035;
+    display: block;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    height: 80px;
+    padding: 5px;
+    background-color: #1e2036;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+}
+
+/* layer ke 2 */
+.pembungkus_2 {
+    box-sizing: border-box;
+    height: calc(100vh - 80px);
+    background-image: linear-gradient(#0F0123, #6C35B8);
+    position: relative;
+  
+}
+/* akhir layer ke 2 */
+
+
+/* layer section landing page */
+.landing-page {
     height: 100%;
-    background-color: blue;
+    width: 100%;
+}
+/* akhir layer section landing page */
+
+/* navbar */
+.pembungkus_logo {
+    width: max-content;
+    height: auto;
+    padding: 5px;
+    display: flex;
+    color: white;
+    align-items: center;
+    margin-inline: 8rem;
 }
 
-.pembungkus_2{
-width: 1000px;
+.pembungkus_logo img {
+    width: 71px;
+    height: 71px;
+}
+
+.pembungkus_logo h1 {
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+.pembungkus_menu_kiri,
+.pembungkus_menu_kanan {
+    height: auto;
+    padding: 5px;
+}
+
+.pembungkus_menu_kiri,
+.pembungkus_menu_kanan,
+ul,
+a {
+    display: flex;
+    list-style-type: none;
+    text-decoration: none;
+    font-size: 18px;
+    max-width: auto;
+    align-items: center;
+    color: white;
+    font-weight: 500;
+}
+
+.pembungkus_menu_kanan ul,
+.pembungkus_menu_kiri ul {
+    box-sizing: border-box;
+    white-space: nowrap;
+    gap: 16rem;
+}
+
+.dropdown a i {
+    font-size: 10px;
+    margin-left: 6px;
+    transition: transform 0.3s ease;
+    opacity: 0.5;
+    display: inline-block;
+}
+
+.dropdown:hover a i {
+    transform: rotate(180deg);
+    opacity: 1;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 2rem;
+    background: transparent;
+    pointer-events: auto;
+}
+
+.dropdown-menu {
+    margin-top: 1.3rem;
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    min-width: 220px;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease-in-out,
+        transform 0.3s ease-in-out,
+        visibility 0.3s ease-in-out;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu li {
+    list-style: none;
+    position: relative;
+    text-align: left;
+    padding: 0;
+    width: 100%;
+}
+
+.dropdown-menu hr {
+    opacity: 0.2;
+    margin: 0;
+}
+
+.dropdown-menu li a {
+    position: relative;
+    display: block;
+    padding: 12px 20px;
+    color: #252742;
+    text-decoration: none;
+    width: 100%;
+    transition: color 0.3s ease-in-out;
+    z-index: 1;
+    font-size: 15px;
+}
+
+.dropdown-menu #menu_pertama::before {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #252742;
+}
+
+.dropdown-menu #menu_terakhir::before {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #252742;
+    padding-bottom:0.2rem;
+}
+
+.dropdown-menu li::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #252742;
+    transition: width 0.3s ease-in-out;
+    z-index: 0;
+}
+
+.dropdown-menu li:hover::before {
+    width: 100%;
+}
+
+.dropdown-menu li:hover a {
+    color: white;
+    position: relative;
+    z-index: 1;
+}
+/* akhir navbar */
+
+
+/* Landing page */
+.landing-page {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+   
+}
+
+/* Bintang-bintang */
+.icon-ga-jelas {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.icon-ga-jelas .img_long {
+    width: 50px;
+    height: 70px;
+    position: absolute;
+    top: 10rem;
+    left: 30rem;
+    opacity: 0.8;
+}
+
+.icon-ga-jelas .img_wide5 {
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    top: 4rem;
+    left: 8rem;
+    opacity: 0.8;
+}
+
+.icon-ga-jelas .img_wide4 {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 15rem;
+    left: 2rem;
+    opacity: 0.8;
+}
+
+.icon-ga-jelas .img_wide {
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    top: 9rem;
+    right: 15rem;
+    opacity: 0.8;
+}
+
+.icon-ga-jelas .img_wide2 {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 7rem;
+    right: 5rem;
+    opacity: 0.8;
+}
+
+.icon-ga-jelas .img_wide3 {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 20rem;
+    right: 10rem;
+    opacity: 0.8;
+}
+
+/* Sejarah - Konten utama */
+.sejarah {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 4;
+    position: relative;
+    margin-top: 10rem;
+}
+
+.sejarah h1 {
+    background: linear-gradient(to right, #FFB8CF, #93E5FB);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 92px;
+    line-height: 1;
+    text-align: center;
+}
+
+.sejarah h1 span {
+    padding-inline: 0.8rem;
+}
+
+.sejarah p {
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+    padding-block: 1rem;
+    padding-inline: 4rem;
+    text-align: center;
+    
+}
+
+.sejarah button {
+    width: 218px;
+    height: 52px;
+    background-color: #643CB8;
+    border: none;
+    border-radius: 12px;
+    margin-inline: auto;
+    font-size: 18px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    z-index: 5;
+    transition: all 0.3s ease-in-out;
+}
+
+.sejarah button:hover {
+    background: linear-gradient(to right, #FFB8CF, #93E5FB);
+    color: #252742;
+}
+
+.sejarah button i {
+    color: white;
+    margin-left: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.sejarah button:hover i {
+    rotate: 90deg;
+    color:#252742;
+}
+
+/* Awan dan planet */
+.icon-ga-jelas2 {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.icon-ga-jelas2 .awan-kiri {
+    position: absolute;
+    bottom: -12rem;
+    left: 0;
+    width: 45%;
+    z-index: 2;
+    left: 0;
+}
+
+/* Memastikan awan tetap terlihat di bawah */
+.icon-ga-jelas2 .awan-kiri,
+.icon-ga-jelas2 .awan_kanan {
+    position: absolute;
+    bottom: 0;
+    z-index: 3;
+    /* Di bawah bulan tetapi di atas konten dasar */
+}
+
+.icon-ga-jelas2 .bulan {
+    bottom: -9rem;
+    position: absolute;
+    left: 36rem;
+    transform: translateX(-50%);
+    width: 512px;
+    height: 512px;
+    z-index: 2;
+    opacity: 0.8;
+}
+
+.icon-ga-jelas2 .awan_kanan {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    z-index: 2;
+}
+
+/* Laynard */
+.laynard {
+    width: 100%;
+    height: 64px;
+    background-color: #1e2036;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 5;
+}
+
+.laynard .marquee {
+    display: flex;
+    animation: marquee 20s linear infinite;
+    width: 100%;
+    height: 100%;
+    overflow:scroll;
+}
+
+ @keyframes marquee {
+     from {
+         transform: translateX(100%);
+     }
+     to {
+         transform: translateX(-100%);
+     }
+ }
+
+.isi_laynard {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: max-content;
+    padding-block: 1rem;
+}
+
+.isi_laynard img {
+    width: 48px;
+    height: 32px;
+}
+
+.isi_laynard h5 {
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.perjalanan_himtika{
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(#0F0123, #6C35B8);
+    z-index: 3;
+    box-sizing: border-box;
+    padding-block:10%;
+}
+
+.perjalanan_himtika .icon-ga-jelas3{
+    position: absolute;
+    pointer-events: none;
+}
+.icon-ga-jelas3 .img_long{
+left:29rem;
+position: absolute;
+}
+.icon-ga-jelas3 .img_wide7{
+position:absolute;
+left:58rem;
+top:9rem;
+}
+
+.perjalanan_himtika .teks_perjalanan h1{
+background: linear-gradient( #FFB8CF, #93E5FB);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 92px;
+    line-height: 1;
+    text-align: center;
+}
+
+.perjalanan_himtika .teks_perjalanan p{
+    margin-inline:30%;
+    text-align: center;
+    margin-top: 4rem;
+    color: white;
+}
+
+.tombol{
+width: 100%;
 height: 100%;
-padding-inline:11px;
-background-color: red;
+background-color:red;
+}
+
+.tombol .tombol_kecil{
+    width: 20px;
+    height: 20px;
+    background: linear-gradient( #FFB8CF, #93E5FB);
+    border-radius: 50%;
 }
