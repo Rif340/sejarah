@@ -1,14 +1,40 @@
+.mySlides {
+    display: none
+}
+
+.dot {
+    transition: background-color 0.6s ease;
+}
+
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Plus Jakarta Sans';
+    font-family: "Plus Jakarta Sans";
 }
 
 html,
 body {
     width: 100%;
-    overflow-x: hidden;
-    /* Mencegah scroll horizontal */
+    margin: 0;
+    padding: 0;
+
 }
 
 ::-webkit-scrollbar {
@@ -16,15 +42,15 @@ body {
 }
 
 @font-face {
-    font-family: 'Plus Jakarta Sans';
-    src: url('../asset/Plus_Jakarta_Sans/static/PlusJakartaSans-Regular.ttf') format('truetype');
+    font-family: "Plus Jakarta Sans";
+    src: url("../asset/Plus_Jakarta_Sans/static/PlusJakartaSans-Regular.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Plus Jakarta Sans';
-    src: url('../asset/Plus_Jakarta_Sans/static/PlusJakartaSans-Bold.ttf') format('truetype');
+    font-family: "Plus Jakarta Sans";
+    src: url("../asset/Plus_Jakarta_Sans/static/PlusJakartaSans-Bold.ttf") format("truetype");
     font-weight: bold;
     font-style: normal;
 }
@@ -32,7 +58,7 @@ body {
 .pembungkus_utama {
     width: 100%;
     height: 100vh;
-    background-color: #1E1035;
+    background-color: #1e1035;
     display: block;
 }
 
@@ -40,27 +66,23 @@ nav {
     display: flex;
     justify-content: center;
     height: 80px;
-    padding: 5px;
+    width: 100%;
     background-color: #1e2036;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+    position: fixed;
+    z-index: 11;
+    top: 0;
+
+    transition: background-color 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
-/* layer ke 2 */
-.pembungkus_2 {
-    box-sizing: border-box;
-    height: calc(100vh - 80px);
-    background-image: linear-gradient(#0F0123, #6C35B8);
-    position: relative;
-  
+nav.scrolled {
+    opacity: 0.7;
+    /* Ubah opacity sesuai keinginan */
+    background-color: rgba(30, 32, 54, 0.9);
+    /* Ubah warna latar belakang jika perlu */
 }
-/* akhir layer ke 2 */
 
-
-/* layer section landing page */
-.landing-page {
-    height: 100%;
-    width: 100%;
-}
 /* akhir layer section landing page */
 
 /* navbar */
@@ -140,6 +162,7 @@ a {
 }
 
 .dropdown-menu {
+    width: 200px;
     margin-top: 1.3rem;
     display: block;
     position: absolute;
@@ -153,8 +176,7 @@ a {
     opacity: 0;
     visibility: hidden;
     transform: translateY(10px);
-    transition: opacity 0.3s ease-in-out,
-        transform 0.3s ease-in-out,
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out,
         visibility 0.3s ease-in-out;
 }
 
@@ -162,6 +184,7 @@ a {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+    width: 200px;
 }
 
 .dropdown-menu li {
@@ -175,6 +198,7 @@ a {
 .dropdown-menu hr {
     opacity: 0.2;
     margin: 0;
+    width: 200px;
 }
 
 .dropdown-menu li a {
@@ -199,7 +223,7 @@ a {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     background-color: #252742;
-    padding-bottom:0.2rem;
+    padding-bottom: 0.2rem;
 }
 
 .dropdown-menu li::before {
@@ -223,8 +247,24 @@ a {
     position: relative;
     z-index: 1;
 }
+
+/* sulap opacity jadi rendah */
+/* Saat navbar melewati halaman pertama */
+nav.scrolled {
+    opacity: 0.7;
+    background-color: rgba(30, 32, 54, 0.9);
+}
+
 /* akhir navbar */
 
+/* layer ke 2 */
+.pembungkus_2 {
+    box-sizing: border-box;
+    height: 100vh;
+    /* Menggunakan tinggi tetap */
+    background-image: linear-gradient(#0f0123, #6c35b8);
+    position: relative;
+}
 
 /* Landing page */
 .landing-page {
@@ -233,7 +273,6 @@ a {
     width: 100%;
     display: flex;
     flex-direction: column;
-   
 }
 
 /* Bintang-bintang */
@@ -257,7 +296,7 @@ a {
     width: 45px;
     height: 45px;
     position: absolute;
-    top: 4rem;
+    top: 6rem;
     left: 8rem;
     opacity: 0.8;
 }
@@ -306,13 +345,13 @@ a {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    z-index: 4;
+    z-index: 3;
     position: relative;
-    margin-top: 10rem;
+
 }
 
 .sejarah h1 {
-    background: linear-gradient(to right, #FFB8CF, #93E5FB);
+    background: linear-gradient(to right, #ffb8cf, #93e5fb);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -332,13 +371,12 @@ a {
     padding-block: 1rem;
     padding-inline: 4rem;
     text-align: center;
-    
 }
 
 .sejarah button {
     width: 218px;
     height: 52px;
-    background-color: #643CB8;
+    background-color: #643cb8;
     border: none;
     border-radius: 12px;
     margin-inline: auto;
@@ -355,7 +393,7 @@ a {
 }
 
 .sejarah button:hover {
-    background: linear-gradient(to right, #FFB8CF, #93E5FB);
+    background: linear-gradient(to right, #ffb8cf, #93e5fb);
     color: #252742;
 }
 
@@ -367,7 +405,7 @@ a {
 
 .sejarah button:hover i {
     rotate: 90deg;
-    color:#252742;
+    color: #252742;
 }
 
 /* Awan dan planet */
@@ -375,7 +413,7 @@ a {
     position: absolute;
     bottom: 0;
     width: 100%;
-    z-index: 2;
+    z-index: 1;
     pointer-events: none;
 }
 
@@ -394,7 +432,7 @@ a {
     position: absolute;
     bottom: 0;
     z-index: 3;
-    /* Di bawah bulan tetapi di atas konten dasar */
+    /* Pastikan z-index cukup tinggi */
 }
 
 .icon-ga-jelas2 .bulan {
@@ -405,6 +443,7 @@ a {
     width: 512px;
     height: 512px;
     z-index: 2;
+    visibility: hidden;
     opacity: 0.8;
 }
 
@@ -424,25 +463,31 @@ a {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    z-index: 5;
+    z-index: 4;
+    position: absolute;
+    bottom: 0rem;
 }
 
 .laynard .marquee {
     display: flex;
-    animation: marquee 20s linear infinite;
     width: 100%;
     height: 100%;
-    overflow:scroll;
+    overflow-x: auto;
+
+    white-space: nowrap;
+
+    gap: 2rem;
 }
 
- @keyframes marquee {
-     from {
-         transform: translateX(100%);
-     }
-     to {
-         transform: translateX(-100%);
-     }
- }
+@keyframes marquee {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
 
 .isi_laynard {
     display: flex;
@@ -463,31 +508,92 @@ a {
     font-weight: 600;
 }
 
-.perjalanan_himtika{
+/* akhir layer ke 2 */
+
+/* laynard 2 */
+.laynard2 {
     width: 100%;
-    height: 100%;
-    background-image: linear-gradient(#0F0123, #6C35B8);
-    z-index: 3;
-    box-sizing: border-box;
-    padding-block:10%;
+    height: 64px;
+    background-color: #1e2036;
+    display: flex;
+    justify-content: space-around;
+    z-index: 4;
+    bottom: 0;
 }
 
-.perjalanan_himtika .icon-ga-jelas3{
+.laynard2 .marquee2 {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+
+    white-space: nowrap;
+
+    gap: 2rem;
+}
+
+@keyframes marquee2 {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.isi_laynard2 {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: max-content;
+    padding-block: 1rem;
+}
+
+.isi_laynard2 img {
+    width: 48px;
+    height: 32px;
+}
+
+.isi_laynard2 h5 {
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* akhir laynard 2 */
+
+.pembungkus_perjalanan {
+    background-image: linear-gradient(#1c1e32, #4B2283);
+}
+
+.perjalanan_himtika {
+    width: 100%;
+    height: 1000;
+    background: none;
+    z-index: 3;
+    box-sizing: border-box;
+    padding-block: 10%;
+}
+
+.perjalanan_himtika .icon-ga-jelas3 {
     position: absolute;
     pointer-events: none;
 }
-.icon-ga-jelas3 .img_long{
-left:29rem;
-position: absolute;
-}
-.icon-ga-jelas3 .img_wide7{
-position:absolute;
-left:58rem;
-top:9rem;
+
+.icon-ga-jelas3 .img_long {
+    left: 29rem;
+    position: absolute;
 }
 
-.perjalanan_himtika .teks_perjalanan h1{
-background: linear-gradient( #FFB8CF, #93E5FB);
+.icon-ga-jelas3 .img_wide7 {
+    position: absolute;
+    left: 58rem;
+    top: 9rem;
+}
+
+.perjalanan_himtika .teks_perjalanan h1 {
+    background: linear-gradient(#ffb8cf, #93e5fb);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -496,22 +602,407 @@ background: linear-gradient( #FFB8CF, #93E5FB);
     text-align: center;
 }
 
-.perjalanan_himtika .teks_perjalanan p{
-    margin-inline:30%;
+.perjalanan_himtika .teks_perjalanan p {
+    margin-inline: 30%;
     text-align: center;
     margin-top: 4rem;
     color: white;
 }
 
-.tombol{
-width: 100%;
-height: 100%;
-background-color:red;
+.tombol {
+    position: relative;
+    left: 90rem;
+    bottom: -25rem;
+    width: 0;
+    z-index: 5;
+    /* Tombol sekarang berada di atas perjalanan_himtika */
 }
 
-.tombol .tombol_kecil{
-    width: 20px;
-    height: 20px;
-    background: linear-gradient( #FFB8CF, #93E5FB);
+.tombol .tombol_kecil {
+    width: 8px;
+    height: 8px;
+    background: linear-gradient(#ffb8cf, #93e5fb);
     border-radius: 50%;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.tombol .arrow_atas {
+    cursor: pointer;
+    position: relative;
+    right: 0.7rem;
+}
+
+.tombol .arrow_bawah {
+    cursor: pointer;
+    position: relative;
+    right: 0.6rem;
+    margin-top: 8px;
+}
+
+/* perjalanan himtika2  */
+.perjalanan_himtika2 {
+    width: 100%;
+    z-index: 3;
+    box-sizing: border-box;
+    background: none;
+    height: fit-content;
+    padding: 0;
+}
+
+.teks_perjalanan2 {
+    margin-left: 7rem;
+}
+
+.perjalanan_himtika2 .teks_perjalanan2 h1 {
+    background: linear-gradient(#ffb8cf, #93e5fb);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 92px;
+    text-align: left;
+    bottom: 20rem;
+    position: relative;
+}
+
+.perjalanan_himtika2 .teks_perjalanan2 h2 {
+    opacity: 10%;
+    text-align: center;
+    margin-block: 5rem;
+    font-size: 256px;
+}
+
+.perjalanan_himtika2 .teks_perjalanan2 p {
+    color: white;
+    text-align: left;
+    bottom: 16rem;
+    position: relative;
+    font-size: 25px;
+}
+
+/* kabinet sinergis */
+.kabinet_sinergis {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    background-image: linear-gradient(#4B2283, #1c1e32);
+}
+
+.teks_kabinet {
+    height: 100%;
+    box-sizing: border-box;
+    position: relative;
+    margin-top: 10rem;
+    z-index: 3;
+}
+
+.kabinet_sinergis .teks_kabinet h1 {
+    background: linear-gradient(90deg, #ffb8cf, #93e5fb);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 92px;
+    text-align: center;
+}
+
+.kabinet_sinergis .teks_kabinet h1 #sinergis {
+    font-size: 100px;
+}
+
+.kabinet_sinergis .teks_kabinet h2 {
+    background: linear-gradient(#ffb8cf, #93e5fb);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    text-align: center;
+}
+
+.kabinet_sinergis .teks_kabinet p {
+    text-align: center;
+    color: white;
+}
+
+/* icon icon kabinet */
+
+.icon-ga-jelas4 {
+    position: relative;
+    width: 100%;
+    z-index: 2;
+    bottom: 40rem;
+    height: 200px;
+}
+
+.kabinet_sinergis .teks_kabinet .logo_kabinet2 {
+    position: absolute;
+    width: 100%;
+    bottom: -10rem;
+    z-index: -1;
+}
+
+.icon-ga-jelas4 .img_long2_kedua {
+    position: absolute;
+    top: 10rem;
+    left: 31rem;
+    rotate: 20deg;
+    width: 48px;
+    height: 51px;
+}
+
+.icon-ga-jelas4 .img_long2 {
+    position: absolute;
+    top: 10rem;
+    left: 80rem;
+}
+
+.icon-ga-jelas4 .img_long3 {
+    position: absolute;
+    top: 30rem;
+    left: 10rem;
+}
+
+.icon-ga-jelas4 .img_wide {
+    position: absolute;
+    top: 20rem;
+    left: 62rem;
+}
+
+/* akhir */
+
+/* awal nilai */
+.nilai2 {
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(#6C35B8, #0F0123);
+    z-index: 3;
+    box-sizing: border-box;
+    padding-block: 10%;
+    height: 1600px;
+    position: relative;
+
+}
+
+.teks_nilai2 {
+    margin-left: 7rem;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.teks_nilai h1 {
+    background: linear-gradient(to right, #ffb8cf, #93e5fb);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 92px;
+    line-height: 1;
+    text-align: center;
+}
+
+.teks_nilai span {
+    background: linear-gradient(to right, #ffb8cf, #93e5fb);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 55px;
+    margin-inline: auto;
+    text-align: center;
+
+}
+
+.teks_nilai p {
+    color: white;
+    text-align: center;
+    font-size: 25px;
+    margin-top: 5px;
+}
+
+.nilai2 .teks_nilai .img_long2 {
+    position: relative;
+    bottom: 9rem;
+    left: 29rem;
+    rotate: -120deg;
+}
+
+.nilai2 .teks_nilai .img_wide {
+    position: relative;
+    left: 60rem;
+    bottom: 8rem;
+    width: 47px;
+    height: 47px;
+    rotate: 30deg;
+}
+
+.box_card_nilai {
+    display: grid;
+    row-gap: 50px;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    grid-template-columns: auto auto auto;
+    margin-left: 6rem;
+}
+
+.box_card_nilai .card_nilai {
+    width: 300px;
+    background-color: #ab6fff;
+    height: 400px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    align-items: center;
+    padding: 20px;
+    position: relative;
+}
+
+.card_nilai p:nth-child(1) {
+    color: white;
+    font-size: 20px;
+    font-weight: 1000;
+    margin-top: 1rem;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.card_nilai p:nth-child(2) {
+    color: white;
+    font-size: 20px;
+    font-weight: 1000;
+    margin-top: 1rem;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.card_nilai p:nth-child(3) {
+    font-size: 17px;
+    color: white;
+    text-align: justify;
+    text-justify: inter-word;
+    margin-top: 1rem;
+}
+
+/* footer */
+
+.footer {
+    height: 550px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    background-color: #643cb8;
+}
+
+.box_atas {
+    margin-top: 2rem;
+    width: 100%;
+    display: flex;
+    gap: 6rem;
+}
+
+.dalem_box_atas {
+    width: 100%;
+    height: 100%;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    text-align: justify;
+    text-justify: inter-word;
+    padding: 2rem;
+}
+
+.dalem_box_atas .logo {
+    width: 206px;
+    height: 206px;
+    display: block;
+    margin: auto;
+    filter: drop-shadow(3px 1px 2px black);
+}
+
+.dalem_box_atas h1 {
+    color: white;
+    font-size: 32px;
+    font-weight: 700;
+    margin-top: 1rem;
+    text-align: center;
+    text-shadow: 2px 2px 5px black;
+}
+
+.pembungkus_atas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.dalem_box_atas .box-icon {
+    margin-top: 1rem;
+    background-color: #744fbf;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    border-radius: 50%;
+    justify-content: space-around;
+    display: flex;
+}
+
+.box-icon img {
+    width: 24px;
+    height: 24px;
+    align-self: center;
+    margin: auto;
+    cursor: pointer;
+}
+
+.dalem_box_atas p:nth-child(1) {
+    color: white;
+    font-weight: 700;
+}
+
+.dalem_box_atas a {
+    color: white;
+    margin-top: 1rem;
+}
+
+hr {
+    border-top: 1px solid white;
+    width: 1200px;
+    align-self: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.box_bawah {
+    position: relative;
+}
+
+.dalem_box_bawah {
+    display: flex;
+    justify-content: center;
+}
+
+.dalem_box_bawah :nth-child(1) {
+    margin-bottom: 5px;
+}
+
+.dalem_box_bawah :nth-child(2) img {
+    width: 42px;
+    height: 42px;
+    margin-right: 1rem;
+}
+
+.dalem_box_bawah p {
+    color: white;
+}
+
+.dalem_box_bawah p:nth-child(2) {
+    margin-top: 6px;
+    color: white;
+    font-size: 14px;
 }
