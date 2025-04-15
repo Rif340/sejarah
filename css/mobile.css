@@ -1,11 +1,30 @@
 body{
     align-items:center;
+    font-family: "Plus Jakarta Sans";
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+@font-face {
+    font-family: "Plus Jakarta Sans";
+    src: url("../asset/Plus_Jakarta_Sans/static/PlusJakartaSans-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Plus Jakarta Sans";
+    src: url("../asset/Plus_Jakarta_Sans/static/PlusJakartaSans-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
 }
 
 .mobile{
 width: 360px;
 max-width: 600px;
-height:844px;
+height:3000px;
 background-color:salmon;
 }
 
@@ -36,3 +55,225 @@ align-items: center;
 .navbar img:nth-child(2):hover{
     
 }
+
+
+.landing-page{
+    width: 100%;
+    height: 500px;
+    background-color:yellow;
+}
+
+.sejarah{
+    width: 100%;
+    height: 210px;
+    background-color:green;
+    position:relative;
+    margin-bottom: 1rem;
+}
+
+.sejarah button {
+    width: 127px;
+    height: 28px;
+    background-color: #643cb8;
+    border: none;
+    border-radius: 12px;
+    margin-inline: auto;
+    font-size: 12px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.sejarah button:hover {
+    background: linear-gradient(to right, #ffb8cf, #93e5fb);
+    color: #252742;
+}
+
+.sejarah button i {
+    color: white;
+    margin-left: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.sejarah button:hover i {
+    rotate: 90deg;
+    color: #252742;
+}
+
+.sejarah h1{
+    padding-top:5rem;
+    background: linear-gradient(90deg, #ffb8cf, #93e5fb);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-align: center;
+}
+
+.sejarah .bintang1{
+    height: 32px;
+    width:32px;
+    position: absolute;
+    top:2rem;
+    right:7rem;
+    display:block;
+}
+
+.sejarah .bintang2{
+    height: 32px;
+    width:32px;
+    position: absolute;
+    top:4rem;
+    left:6.3rem;
+    display:block;
+}
+
+.icon{
+    width: 100%;
+    height: 200px;
+    background-color:blue;
+    position:relative;
+}
+
+
+.icon img:nth-child(1){
+    width: 312px;
+    height: 312px;
+    position: absolute;
+    top: -59px;
+    display: block;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    pointer-events: none;
+}
+
+.icon img:nth-child(2){
+    width: 200px;
+    height: 100px;
+    display: block;
+    position: absolute;
+    bottom:0;
+    left:0;
+}
+
+.icon img:nth-child(3){
+    width: 200px;
+    height: 100px;
+    display: block;
+    position: absolute;
+    bottom:0;
+    right:0;
+}
+
+.icon img:nth-child(4) {
+    width: 32px;
+    height: 42px;
+    display: block;
+    position: absolute;
+    left: 18rem;
+}
+
+.icon img:nth-child(5) {
+    width: 32px;
+    height: 42px;
+    display: block;
+    position: absolute;
+    right: 16em;
+    rotate:20deg;
+}
+
+.laynard{
+    width: 360px;;
+    height: 50px;
+    background-color:purple;
+    position:relative;
+    overflow:scroll;
+    display:flex;
+    gap:2rem;
+}
+
+.isi {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.isi img {
+    width: 48px;
+    height: 32px;
+}
+
+.isi h5 {
+font-size:12px;
+color:white
+}
+
+.pembungkus_perjalanan{
+    width: 100%;
+    height: 700px;
+    background-color:orange;
+    position:relative;
+}
+
+/* perjalanan */
+.perjalanan{
+    width: 100%;
+    height: 340px;
+    background-color:pink;
+    position:relative;
+}
+
+.perjalanan .bintang_putih1{
+    width: 48px;
+    height: 61px;
+    top:1rem;
+    left:4rem;
+    position: absolute;
+}
+
+.perjalanan .bintang_putih2{
+    width: 48px;
+    height: 61px;
+    position: absolute;
+    bottom: 0;
+    right: 3rem;
+}
+
+.perjalanan h1{
+padding-top: 4rem;
+background: linear-gradient(90deg, #ffb8cf, #93e5fb);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+}
+/* akhir perjalanan */
+
+/* awal tombol perjalanan */
+.tombol{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    gap:4px ;
+    justify-content: center;
+}
+
+.tombol i{
+    width: 20px;
+    height: 20px;
+    display: block;
+    color:#d2b2ff;
+}
+
+.tombol_kecil{
+    margin-top:3px;
+    width: 8px;
+    height: 8px;
+    background: linear-gradient(#ffb8cf, #93e5fb);
+    border-radius: 50%;
+}
+/* akhir tombol perjalanan */
